@@ -1,0 +1,5 @@
+h1 {
+  text-align: center; /* Centre the heading */
+  text-transform: uppercase; /* Change heading to upper case */
+  border: 2px dashed red; /* Put a red border round the heading */
+}
