@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tasks</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Tasks</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search" action="task.html">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="page-header">
+        <h1>Your Tasks</h1>
+      </div>
+      <ol class="breadcrumb">
+        <li class="active">Home</li>
+      </ol>
+      <div class="row">
+        <div class="col-md-12">
+          <p>Your tasks are:</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Unfinished Tasks <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></h2>
+          <ul>
+            <li><a href="task.html">Learn HTML</a></li>
+            <li><a href="task.html">Learn CSS</a></li>
+            <li><a href="task.html">Learn JavaScript</a></li>
+            <li><a href="task.html">Win Lottery</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h2>Finished Tasks <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></h2>
+          <ul>
+            <li><a href="task.html">Tidy Desk</a></li>
+            <li><a href="task.html">Wash Clothes</a></li>
+            <li><a href="task.html">Arrange Socks</a></li>
+            <li><a href="task.html">Procastinate</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container-fluid">
+        <p class="text-muted">Responsive Web Design</p>
+      </div>
+    </footer>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
