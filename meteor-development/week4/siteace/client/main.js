@@ -46,16 +46,17 @@ Template.website_form.events({
     },
     "submit .js-save-website-form": function(event) {
         var url = event.target.url.value;
-        var title = event.target.title.value;
-        var description = event.target.description.value;
         if (Meteor.user()) {
-            Websites.insert({
-                url: url,
-                title: title,
-                description: description,
-                upVotes: 0,
-                downVotes: 0,
-                createdOn: new Date()
+            extractMeta(url, function (err, res) {
+                Websites.insert({
+                    url: url,
+                    title: res.title,
+                    description: res.description,
+                    upVotes: 0,
+                    downVotes: 0,
+                    createdOn: new Date()
+                });
+                $(".js-save-website-form input").val('');
             });
         }
         $("#website_form").toggle('slow');

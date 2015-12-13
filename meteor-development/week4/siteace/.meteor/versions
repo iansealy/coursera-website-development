@@ -2,6 +2,7 @@ accounts-base@1.2.2
 accounts-password@1.1.4
 accounts-ui@1.1.6
 accounts-ui-unstyled@1.1.8
+acemtp:meta-extractor@1.0.4
 autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
