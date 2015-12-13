@@ -1,0 +1,22 @@
+.default_hide {
+	display: none;
+}
+
+#website_form, #website_list {
+	margin: 1em 0 2em 0;
+}
+
+#website_list li {
+	margin-bottom: 1.5em;
+}
+
+.votes {
+	display: inline-block;
+	min-width: 2em;
+	font-weight: bold;
+}
+
+.timeago {
+	margin: 0.2em 0;
+	font-size: 0.8em;
+}
