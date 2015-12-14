@@ -17,6 +17,9 @@
 	  <div class="navbar-text">
 		{{> loginButtons}}
 	  </div>
+	  <div class="navbar-text">
+		{{> EasySearch.Input index=websitesIndex}}
+	  </div>
 	</div>
   </nav>
   <div class="container">
@@ -50,9 +53,9 @@
 
 <template name="website_list">
   <ul id="website_list">
-	{{#each websites}}
+	{{#EasySearch.Each index=websitesIndex}}
 	  {{>website_item}}
-	{{/each}}
+	{{/EasySearch.Each}}
   </ul>
 </template>
 

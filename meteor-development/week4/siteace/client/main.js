@@ -20,13 +20,6 @@ Router.route('/site/:_id', function() {
     });
 });
 
-// Get all websites
-Template.website_list.helpers({
-	websites: function() {
-		return Websites.find({}, {sort: {upVotes: -1, downVotes: 1}});
-	}
-});
-
 // Get all comments
 Template.comment_list.helpers({
 	comments: function() {
@@ -37,6 +30,14 @@ Template.comment_list.helpers({
 // Format dates
 Template.registerHelper('timeAgo', function(date) {
     return moment(date).fromNow();
+});
+
+// Search
+Template.ApplicationLayout.helpers({
+    websitesIndex: () => WebsitesIndex
+});
+Template.website_list.helpers({
+    websitesIndex: () => WebsitesIndex
 });
 
 // Website form events
