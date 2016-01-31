@@ -8,7 +8,7 @@
 <!-- this is the main template used by iron:router to build the page -->
 <template name="ApplicationLayout">
 	{{> yield "header"}}
-	
+
 	<div class="container">
 	{{> yield "main"}}
 	</div>
@@ -37,6 +37,9 @@
 
 <!-- display a list of users -->
 <template name="available_user_list">
+    {{#unless currentUser }}
+    <p>Please sign in in order to chat.</p>
+    {{/unless}}
 	<h2>Choose someone to chat with:</h2>
 	<div class="row">
 	{{#each users}}
@@ -47,12 +50,12 @@
 
 <!-- display an individual user -->
 <template name="available_user">
-	<div class="col-md-2">
+	<div class="col-md-2 col-sm-4">
 		<div class="user_avatar">
-			{{#if isMyUser _id}} 
+			{{#if isMyUser _id}}
 			<div class="bg-success">{{getUsername _id}} (YOU)
 				<br/>
-				<img src="/{{profile.avatar}}" class="avatar_img">			
+				<img src="/{{profile.avatar}}" class="avatar_img">
 			</div>
 			{{else}}
 			<a href="/chat/{{_id}}">
@@ -69,15 +72,9 @@
 <!-- Top level template for the chat page -->
 <template name="chat_page">
 	<h2>Type in the box below to send a message!</h2>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="well well-lg">
-			{{#each messages}}
-			{{> chat_message}}
-			{{/each}}
-			</div>	
-		</div>
-	</div>
+	{{#each messages}}
+	{{> chat_message}}
+	{{/each}}
     <div class="row">
 		<div class="col-md-12">
 			<form class="js-send-chat">
@@ -85,14 +82,59 @@
 			<button class="btn btn-default">send</button>
 		</form>
 		</div>
+		<div class="col-md-12">
+            <p>Note that you can use emoticons, such as:</p>
+            <ul class="emoticons">
+                <li>o_o</li>
+                <li>:D</li>
+                <li>:)</li>
+                <li>:(</li>
+                <li>-_-</li>
+                <li>:P</li>
+                <li>:O</li>
+                <li>:smirk:</li>
+                <li>>:(</li>
+                <li>:ninja:</li>
+                <li>:nerd:</li>
+                <li>:S</li>
+                <li>:bashful:</li>
+                <li>:crying:</li>
+                <li>:love:</li>
+                <li>:devil:</li>
+                <li>:angel:</li>
+                <li>8)</li>
+                <li>:sweating:</li>
+                <li>>:D</li>
+                <li>:spooked:</li>
+                <li>:embarrassed:</li>
+                <li>O.o</li>
+                <li>x-D</li>
+                <li>;)</li>
+                <li>:\</li>
+                <li>:beer:</li>
+            </ul>
+        </div>
 	</div>
 </template>
 
 <!-- simple template that displays a message -->
 <template name="chat_message">
-	someone said: {{text}}
-	<br>
+    <div class="well well-sm">
+    	<div class="row">
+    	    <div class="col-md-2 col-sm-3">
+                {{#if isMyUser user}}
+                <img src="/{{getAvatar user}}" class="avatar_img" />
+                {{/if}}
+    		</div>
+    	    <div class="col-md-8 col-sm-6">
+        	        <strong>{{getUsername user}} said:</strong><br />
+                    {{{parseEmoticons text}}}
+		    </div>
+    	    <div class="col-md-2 col-sm-3 text-right">
+                {{#unless isMyUser user}}
+                <img src="/{{getAvatar user}}" class="avatar_img" />
+                {{/unless}}
+    		</div>
+		</div>
+	</div>
 </template>
-
-
-

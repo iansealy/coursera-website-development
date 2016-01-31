@@ -8,3 +8,8 @@
 .avatar_img{
 	height:75px;
 }
+
+ul.emoticons li {
+	font-family: monospace;
+	list-style-type: none;
+}
