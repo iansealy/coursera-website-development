@@ -1,24 +1,195 @@
 <template name="playground">
 
-<br><br><br>
-<!-- Remember - if you want to control functions globaly, don't declare them as var. Just name them. -->
+<button class="btn btn-default startButton">Start all instruments</button>
+<button class="btn btn-default stopButton">Stop all instruments</button><br><br>
 
-<button class="startButton">DAC</button><br><br>
-<br>Track 1		<button class="myButton1">ON</button>
-<button class="myButton2">OFF</button>
-<br>Track 2		<button class="myButton3">ON</button>
- <button class="myButton4">OFF</button>
-<br>Track 3		<button class="myButton5">ON</button>
- <button class="myButton6">OFF</button>
+<div class="well">
+    <div class="row">
+        <div class="col-md-2"><strong>Drums</strong></div>
+        <div class="col-md-2">
+            <button class="btn btn-xs myButton0on">On</button>
+            <button class="btn btn-xs myButton0off">Off</button>
+        </div>
+        <div class="col-md-4">
+            <div id="slider0speed" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider0speedVal}}</div>
+        </div>
+        <div class="col-md-4">
+            <div id="slider0volume" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider0volumeVal}}</div>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <div class="col-md-2"><strong>Bassline</strong></div>
+        <div class="col-md-2">
+            <button class="btn btn-xs myButton1on">On</button>
+            <button class="btn btn-xs myButton1off">Off</button>
+        </div>
+        <div class="col-md-4">
+            <div id="slider1speed" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider1speedVal}}</div>
+        </div>
+        <div class="col-md-4">
+            <div id="slider1volume" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider1volumeVal}}</div>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <div class="col-md-2"><strong>Arpeggio</strong></div>
+        <div class="col-md-2">
+            <button class="btn btn-xs myButton2on">On</button>
+            <button class="btn btn-xs myButton2off">Off</button>
+        </div>
+        <div class="col-md-4">
+            <div id="slider2speed" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider2speedVal}}</div>
+        </div>
+        <div class="col-md-4">
+            <div id="slider2volume" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider2volumeVal}}</div>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <div class="col-md-2"><strong>Cymbal</strong></div>
+        <div class="col-md-2">
+            <button class="btn btn-xs myButton3on">On</button>
+            <button class="btn btn-xs myButton3off">Off</button>
+        </div>
+        <div class="col-md-4">
+            <div id="slider3speed" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider3speedVal}}</div>
+        </div>
+        <div class="col-md-4">
+            <div id="slider3volume" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider3volumeVal}}</div>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <div class="col-md-2"><strong>Hi-hat</strong></div>
+        <div class="col-md-2">
+            <button class="btn btn-xs myButton4on">On</button>
+            <button class="btn btn-xs myButton4off">Off</button>
+        </div>
+        <div class="col-md-4">
+            <div id="slider4speed" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider4speedVal}}</div>
+        </div>
+        <div class="col-md-4">
+            <div id="slider4volume" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider4volumeVal}}</div>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <div class="col-md-2"><strong>Snare drum</strong></div>
+        <div class="col-md-2">
+            <button class="btn btn-xs myButton5on">On</button>
+            <button class="btn btn-xs myButton5off">Off</button>
+        </div>
+        <div class="col-md-4">
+            <div id="slider5speed" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider5speedVal}}</div>
+        </div>
+        <div class="col-md-4">
+            <div id="slider5volume" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider5volumeVal}}</div>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <div class="col-md-2"><strong>Bass drum</strong></div>
+        <div class="col-md-2">
+            <button class="btn btn-xs myButton6on">On</button>
+            <button class="btn btn-xs myButton6off">Off</button>
+        </div>
+        <div class="col-md-4">
+            <div id="slider6speed" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider6speedVal}}</div>
+        </div>
+        <div class="col-md-4">
+            <div id="slider6volume" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider6volumeVal}}</div>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <div class="col-md-2"><strong>Riff</strong></div>
+        <div class="col-md-2">
+            <button class="btn btn-xs myButton7on">On</button>
+            <button class="btn btn-xs myButton7off">Off</button>
+        </div>
+        <div class="col-md-4">
+            <div id="slider7speed" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider7speedVal}}</div>
+        </div>
+        <div class="col-md-4">
+            <div id="slider7volume" class="slider"></div>
+            <div class="icon">
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </div>
+            <div class="hidden">{{slider7volumeVal}}</div>
+        </div>
+    </div>
+</div>
 
- <br>
-
- <h2> {{startdac}} {{drums}} {{bass}} {{arp}} </h2>
-
-<br>
-  <div id="slider1"></div>
-  <br>
-  Current Speed = {{sliderVal1}}
-
+<div class="hidden">
+    {{startdac}} {{stopdac}} {{drums}} {{bassline}} {{arp}} {{cymbal}} {{hihat}} {{snaredrum}} {{bassdrum}} {{riff}}
+</div>
 
 </template>

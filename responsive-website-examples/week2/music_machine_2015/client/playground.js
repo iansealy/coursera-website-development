@@ -1,52 +1,46 @@
 //playground.js
 
-maxim1 = new Maxim();
-maxim2 = new Maxim();
-maxim3 = new Maxim();
-player1 = maxim1.loadFile("drums1.wav");
-player1.setLooping(true);
-player2 = maxim2.loadFile("bassline.wav");
-player2.setLooping(true);
-player3 = maxim3.loadFile("arp.wav");
-player3.setLooping(true);
-
-playDrums = function(){
-	player1.volume(1);
+maxim = [];
+for (var i = 0; i < 8; i++) {
+    maxim[i] = new Maxim();
+}
+player = [];
+player[0] = maxim[0].loadFile("drums1.wav");
+player[1] = maxim[1].loadFile("bassline.wav");
+player[2] = maxim[2].loadFile("arp.wav");
+player[3] = maxim[3].loadFile("cymbal1.wav");
+player[4] = maxim[4].loadFile("hihat2.wav");
+player[5] = maxim[5].loadFile("snaredrum1.wav");
+player[6] = maxim[6].loadFile("bassdrum1.wav");
+player[7] = maxim[7].loadFile("riff.wav");
+for (var i = 0; i < 8; i++) {
+    player[i].setLooping(true);
 }
 
-stopDrums = function(){
-	player1.volume(0);
+playOne = function(i) {
+    player[i].volume(1);
 }
 
-playBass = function(){
-	player2.volume(1);
-}
-
-stopBass = function(){
-	player2.volume(0);
-}
-
-playArp = function(){
-	player3.volume(1);
-}
-
-stopArp = function(){
-	player3.volume(0);
+stopOne = function(i) {
+    player[i].volume(0);
 }
 
 playAll = function() {
-
-	player1.play();
-	player2.play();
-	player3.play();
+    for (var i = 0; i < 8; i++) {
+        player[i].play();
+    }
 }
 
-setSpeed = function(speed) {
-
-	player1.speed(speed);
-	player2.speed(speed);
-	player3.speed(speed);
-
+stopAll = function() {
+    for (var i = 0; i < 8; i++) {
+        player[i].stop();
+    }
 }
 
+setSpeed = function(i, speed) {
+    player[i].speed(speed);
+}
 
+setVolume = function(i, volume) {
+    player[i].volume(volume);
+}
