@@ -1,0 +1,10 @@
+<template name="country">
+	<form>
+		<select class="js-select-country">
+            <option value="">Choose a country or region</option>
+			{{#each get_countries}}
+			<option value="{{country}}">{{country}}</option>
+			{{/each}}
+		</select>
+	</form>
+</template>

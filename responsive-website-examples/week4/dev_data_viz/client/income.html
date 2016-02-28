@@ -1,0 +1,20 @@
+<template name="income">
+    <div class="container">
+        <h1>Net Income From Abroad</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well">
+                    <p>Please choose a country or region and then a visualisation.</p>
+                    <p>Currently showing net income from abroad (in US dollars) by year.</p>
+                    {{> country}}
+                    <button class="btn btn-xs js-show-income-line">Line Graph</button>
+                    <button class="btn btn-xs js-show-income-bar">Bar Graph</button>
+                    <button class="btn btn-xs js-show-income-points">Scatter Graph</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="visjs"></div>
+            </div>
+        </div>
+    </div>
+</template>

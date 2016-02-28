@@ -1,0 +1,20 @@
+<template name="gdp">
+    <div class="container">
+        <h1>GDP Per Capita</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well">
+                    <p>Please choose a country or region and then a visualisation.</p>
+                    <p>Currently showing GDP per capita (in US dollars) by year.</p>
+                    {{> country}}
+                    <button class="btn btn-xs js-show-gdp-line">Line Graph</button>
+                    <button class="btn btn-xs js-show-gdp-bar">Bar Graph</button>
+                    <button class="btn btn-xs js-show-gdp-points">Scatter Graph</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="visjs"></div>
+            </div>
+        </div>
+    </div>
+</template>
